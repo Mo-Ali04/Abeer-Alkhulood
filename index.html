@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="main.css">
+
+    <title>عبير الخلود</title>
+    
+</head>
+
+<body>
+    <nav class="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md text-white z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Branding -->
+            <a href="#" class="text-2xl font-bold tracking-tight">عبير الخلود</a>
+
+            <!-- Desktop Links -->
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#advisor" class="hover:text-yellow-400 transition">المستشار</a></li>
+                <li><a href="product.html#products" class="hover:text-yellow-400 transition">المنتجات</a></li>
+                <li><a href="checkout.html" class="hover:text-yellow-400 transition">الدفع</a></li>
+            </ul>
+
+            <!-- Cart + Mobile Toggle -->
+            <div class="flex items-center space-x-4">
+                <!-- Cart Icon from above -->
+                <button id="cartIcon" class="relative">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4" stroke-width="2"/>
+                        <circle cx="7" cy="21" r="2" /><circle cx="17" cy="21" r="2" />
+                    </svg>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+                </button>
+
+                <!-- Floating Cart Preview -->
+                <div id="cartPreview" class="hidden transition-all duration-300 ease-out absolute right-6 top-16 bg-white text-black rounded-lg shadow-lg w-64 p-4 z-50">
+                    <h3 class="text-lg font-bold mb-2">سلة المشتريات</h3>
+                    <ul id="cartItems" class="space-y-2 text-sm"></ul>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobileMenu" class="hidden md:hidden bg-black bg-opacity-90">
+            <ul class="flex flex-col px-6 py-4 space-y-4">
+                <li><a href="#advisor" class="block hover:text-yellow-400">المستشار</a></li>
+                <li><a href="product.html#products" class="block hover:text-yellow-400">المنتجات</a></li>
+                <li><a href="checkout.html" class="block hover:text-yellow-400">الدفع</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="backgroundContainer" class="fixed inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-92 z-0">
+        <!-- Background Video -->
+        <video id="bgVideo" autoplay muted loop playsinline class="absolute inset-0 w-full object-cover z-0">
+            <source src="assets/spray-showcase.mp4" type="video/mp4"/>
+        </video>
+    </div>
+
+    <section id="advisor" class="relative pt-32 pb-20 overflow-hidden">
+        <!-- Dynamic Background -->
+        <div id="advisorBg" class="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out z-0"></div>
+
+        <!-- Advisor Content -->
+        <div class="relative z-10 max-w-2xl mx-auto bg-black/30 bg-opacity-60 backdrop-blur-md rounded-2xl shadow-2xl p-10 text-white space-y-10 text-center">
+            <!-- Step Container -->
+            <div id="advisorStep" class="space-y-6 text-black transition-opacity duration-700">
+                <!-- Step content will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/advisor.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="main.css">
+
+    <title>الدفع الملكي</title>
+</head>
+
+<body class="bg-black text-white">
+    <nav class="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md text-white z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Branding -->
+            <a href="#" class="text-2xl font-bold tracking-tight">عبير الخلود</a>
+
+            <!-- Desktop Links -->
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="index.html" class="hover:text-yellow-400 transition">المستشار</a></li>
+                <li><a href="product.html" class="hover:text-yellow-400 transition">المنتجات</a></li>
+                <li><a href="#checkoutForm" class="hover:text-yellow-400 transition">الدفع</a></li>
+            </ul>
+
+            <!-- Cart + Mobile Toggle -->
+            <div class="flex items-center space-x-4">
+                <!-- Cart Icon from above -->
+                <button id="cartIcon" class="relative">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4" stroke-width="2"/>
+                        <circle cx="7" cy="21" r="2" /><circle cx="17" cy="21" r="2" />
+                    </svg>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+                </button>
+
+                <!-- Floating Cart Preview -->
+                <div id="cartPreview" class="hidden transition-all duration-300 ease-out absolute right-6 top-16 bg-white text-black rounded-lg shadow-lg w-64 p-4 z-50">
+                    <h3 class="text-lg font-bold mb-2">سلة المشتريات</h3>
+                    <ul id="cartItems" class="space-y-2 text-sm"></ul>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobileMenu" class="hidden md:hidden bg-black bg-opacity-90">
+            <ul class="flex flex-col px-6 py-4 space-y-4">
+                <li><a href="#advisor" class="block hover:text-yellow-400">المستشار</a></li>
+                <li><a href="#products" class="block hover:text-yellow-400">المنتجات</a></li>
+                <li><a href="#checkout" class="block hover:text-yellow-400">الدفع</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="flex flex-col md:flex-row h-screen pt-20">
+        <!-- 🛍️ Left: Cart Summary -->
+        <div class="w-full md:w-1/2 bg-gray-900 p-8 overflow-y-auto">
+            <h2 class="text-2xl font-bold text-yellow-400 mb-6">سلة المشتريات</h2>
+            <ul id="checkoutCart" class="space-y-4"></ul>
+            <div class="mt-6 text-right text-xl text-white">
+                الإجمالي: <span id="cartTotal" class="text-yellow-300">EGP 0</span>
+            </div>
+        </div>
+
+        <!-- 💳 Right: Payment Form -->
+        <div class="w-full md:w-1/2 bg-white text-black p-8">
+            <form id="checkoutForm" class="space-y-4">
+                <input type="text" placeholder="الاسم الكامل" class="w-full p-3 border rounded" required/>
+                <input type="text" placeholder="العنوان" class="w-full p-3 border rounded" required/>
+                <input type="tel" id="phone" placeholder="رقم الهاتف" class="w-full p-3 border rounded" required/>
+                <input type="email" id="email" placeholder="البريد الإلكتروني" class="w-full p-3 border rounded" required/>
+                <input type="text" id="card" placeholder="رقم البطاقة #### #### #### ####" class="w-full p-3 border rounded" required/>
+                <div id="cardBrand" class="mt-2 text-sm text-gray-600"></div>
+                <button type="submit" class="w-full bg-yellow-500 text-black py-3 rounded hover:bg-yellow-600 transition">ادفع الآن</button>
+            </form>
+
+            <div id="thankYou" class="hidden mt-12 text-center text-xl text-green-600 transition-opacity duration-700">
+                شكراً لطلبك! 🌟
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

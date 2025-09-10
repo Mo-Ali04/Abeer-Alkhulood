@@ -1,0 +1,34 @@
+html {
+    scroll-behavior: smooth;
+}
+#backgroundContainer {
+    transition: opacity 0.3s ease-in-out;
+}
+.fade-in {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in:not(.opacity-0) {
+    opacity: 1 !important;
+    transform: none !important;
+}
+#notesSection {
+    position: relative;
+}
+#notesSection::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    pointer-events: none;
+}
+#hoverCard {
+  transition: opacity 160ms ease, transform 160ms ease;
+  opacity: 0;
+  transform: translateY(4px);
+}
+#hoverCard:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
