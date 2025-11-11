@@ -9,6 +9,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="main.css">
 
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="assets/360 viewer/bottle-0001.png">
+    <link rel="preload" as="image" href="assets/top.jpg">
+    <link rel="preload" as="image" href="assets/heart.jpg">
+    <link rel="preload" as="image" href="assets/base.jpg">
+
     <title>تفاصيل العطر</title>
 </head>
 
@@ -62,8 +68,8 @@
     </nav>
 
     <div id="productHero" class="fixed inset-0 bg-gradient-to-br from-black via-gray-950 to-gray-950 opacity-92 z-0">
-        <!-- Background Video -->
-        <video autoplay muted loop playsinline class="absolute inset-0 w-full object-cover z-0">
+        <!-- Background Video with optimized loading -->
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/perfume-poster.jpg" class="absolute inset-0 w-full object-cover z-0">
             <source src="assets/perfume-showcase.mp4" type="video/mp4"/>
         </video>
     </div>
@@ -101,14 +107,14 @@
 
             <!-- Hover Card -->
             <div id="hoverCard" class="hidden fixed p-4 bg-white rounded-lg shadow-lg pointer-events-none z-50 w-64">
-                <img id="hoverImg" class="w-full h-32 object-cover rounded mb-2"/>
+                <img id="hoverImg" class="w-full h-32 object-cover rounded mb-2" loading="eager"/>
                 <p id="hoverDesc" class="text-gray-800 text-sm"></p>
             </div>
         </section>
         
-        <!-- 360 Viewer -->
-        <div id="viewer" class="relative rounded-2xl mx-auto mb-4 overflow-hidden">
-            <img id="frame" src="assets/360 viewer/bottle-0001.png" class="w-full h-full object-contain"/>
+        <!-- 360 Viewer with optimized container -->
+        <div id="viewer" class="relative rounded-2xl mx-auto mb-4 overflow-hidden min-h-[400px] bg-gray-100">
+            <img id="frame" src="assets/360 viewer/bottle-0001.png" class="w-full h-full object-contain" fetchpriority="high"/>
         </div>
 
         <!-- Add to Cart -->
@@ -130,6 +136,7 @@
         </div>
     </section>
 
+    <script src="js/performance.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/product.js"></script>

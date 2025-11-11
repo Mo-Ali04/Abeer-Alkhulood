@@ -1,9 +1,65 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* Performance optimizations */
+* {
+    /* Use GPU acceleration for transforms */
+    will-change: auto;
+}
+
+/* Optimize images */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* 360 Viewer optimizations */
+#viewer {
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+#viewer.cursor-move {
+    cursor: move;
+    cursor: grab;
+    cursor: -webkit-grab;
+}
+
+#viewer.cursor-move:active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+
+#frame {
+    /* Prevent image dragging */
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Loading animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Smooth video loading */
+video {
+    /* Optimize video rendering */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
 #backgroundContainer {
     transition: opacity 0.3s ease-in-out;
 }
+
 .fade-in {
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }

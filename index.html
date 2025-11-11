@@ -63,8 +63,8 @@
     </nav>
 
     <div id="backgroundContainer" class="fixed inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 opacity-92 z-0">
-        <!-- Background Video -->
-        <video id="bgVideo" autoplay muted loop playsinline class="absolute inset-0 w-full object-cover z-0">
+        <!-- Background Video with optimized loading -->
+        <video id="bgVideo" autoplay muted loop playsinline preload="metadata" poster="assets/spray-poster.jpg" class="absolute inset-0 w-full object-cover z-0">
             <source src="assets/spray-showcase.mp4" type="video/mp4"/>
         </video>
     </div>
@@ -82,6 +82,7 @@
         </div>
     </section>
 
+    <script src="js/performance.js"></script>
     <script src="js/main.js"></script>
     <script src="js/advisor.js"></script>
     <script src="js/cart.js"></script>
